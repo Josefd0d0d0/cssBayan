@@ -17,7 +17,7 @@ p{
 display: inline-block;
 }
 .accordeon_wrapper{
-    width: 50%;
+    width: 40%;
     margin: 40px auto 0 auto;
 }
 .accordeon_container{
@@ -30,7 +30,7 @@ display: inline-block;
     
 }
 .accordeon_container label{
-    height: 3em;
+    height: 2em;
     /* background-color: aqua; */
     display: flex;
     padding: 0 0 0 5%;
@@ -43,68 +43,69 @@ display: inline-block;
     font-weight: 700;
     /* letter-spacing: 1px; */
     margin: 0 0 5px 0;
+    color: rgba(28, 28, 179, 0.685);
+    transition: transform 1s ease-out;
 }
 
 .accordeon_container label i{
     height: 1em;
     width: 1em;
-    /* object-fit: cover; */
     margin: 0 3% 0 0;
 }
 .accordeon_container article{
-    width: 100%;
+    width: 60%;
     height: 0px;
     overflow: hidden;
     display: block;
     transition: transform 1s;
+    margin: 0 auto;
 }
 
 .accordeon_container input:checked ~ article {
+    width: 70%;
     height: auto;
-    /* border: 1px solid black; */
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     overflow: hidden;
-    width: auto;
-    
-    /* background: white; */
 }
-.accordeon_wrapper>.accordeon_container>label> i{
-    background: url('../assets/img/square-plus-regular.svg');
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: auto 100%;
+.accordeon_wrapper:hover>.accordeon_container>label> i{
+    background: url('../assets/img/plus-solid.svg')0 0/auto 100% no-repeat;
 }
-.accordeon_wrapper:hover> .accordeon_container>label> i{
-    background: url('../assets/img/square-plus-solid.svg');
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-}
+/* .accordeon_wrapper:hover> .accordeon_container>label> i{
+    background: url('../assets/img/square-plus-solid.svg')0 0/auto 100% no-repeat;
+} */
 
-.accordeon_container input:checked ~ article:before {
-    transition: transform 1s ease-out;
-}
 .accordeon_container input:checked ~ label{
     border-bottom: none;
+    color: black;
 }
-.accordeon_wrapper>.accordeon_container> input:checked ~ label> i{
-    background: url('../assets/img/square-minus-regular.svg');
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: auto 100%;
+.accordeon_wrapper:hover>.accordeon_container>  ~ label> i{
+    /* background: url('../assets/img/square-minus-regular.svg')0 0/auto 100% no-repeat; */
+    transform: rotate(45deg);
 }
-.accordeon_wrapper:hover> .accordeon_container> input:checked ~ label> i{
-    background: url('../assets/img/square-minus-solid.svg');
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: auto 100%;
+/* .accordeon_wrapper:hover> .accordeon_container> input:checked ~ label> i{
+    background: url('../assets/img/square-minus-solid.svg')0 0/auto 100% no-repeat;
+} */
+.accordeon_wrapper:hover>.accordeon_container>label{
+    color: black;
 }
-.accordeon_wrapper:hover> .accordeon_container> input:checked ~ label{
-    color: blue;
+.accordeon_container:hover article{
+    width: 70%;
+    height: auto;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+    background: url('../assets/img/square-minus-solid.svg')0 0/auto 100% no-repeat;
 }
-
-
+.accordeon_container:hover label i{
+    transform: rotate(45deg);
+}
+.accordeon_container>article:active ~ label{
+    color: rgba(28, 28, 179, 0.685);
+}
+article:active{
+    filter: blur(1px);
+}
 @media (max-width: 900px){
     .accordeon_container label{
         font-size: 25px ;
@@ -112,12 +113,12 @@ display: inline-block;
 }
 
 @media (max-width: 820px){
-h1{
- font-size: 25px;
-}
-.accordeon_container label{
-    font-size: 20px ;   
-}    
+    h1{
+    font-size: 30px;
+    }
+    .accordeon_container label{
+        font-size: 20px ;   
+    }    
 }
 
 @media (max-width: 320px){
@@ -125,12 +126,7 @@ h1{
      font-size: 15px;
     }
     .accordeon_container label{
-        font-size: 10px ;   
+        font-size: 10px ;    
     }  
-    .accordeon_container label i{
-        height: 10px;
-        width: 10px; 
-        margin: 0 5px 0 0;  
-    }
  }
     
