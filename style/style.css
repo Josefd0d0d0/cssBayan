@@ -17,7 +17,7 @@ p{
 display: inline-block;
 }
 .accordeon_wrapper{
-    width: 40%;
+    width: 45%;
     margin: 40px auto 0 auto;
 }
 .accordeon_container{
@@ -31,81 +31,93 @@ display: inline-block;
 }
 .accordeon_container label{
     height: 2em;
-    /* background-color: aqua; */
     display: flex;
     padding: 0 0 0 5%;
     border-bottom: 0.5px solid black;
     justify-content: space-between;
     line-height: 1em;
-    font-size: 30px;
+    font-size: 28px;
     align-items: center;
     cursor: pointer;
     font-weight: 700;
-    /* letter-spacing: 1px; */
-    margin: 0 0 5px 0;
     color: rgba(28, 28, 179, 0.685);
-    transition: transform 1s ease-out;
 }
-
+/* иконка */
 .accordeon_container label i{
     height: 1em;
     width: 1em;
-    margin: 0 3% 0 0;
+    margin: 0 1% 0 0;
+    transition: transform 1s;
 }
+
+/* блок с картинкой */
 .accordeon_container article{
-    width: 60%;
-    height: 0px;
+    width: 0;
     overflow: hidden;
     display: block;
-    transition: transform 1s;
-    margin: 0 auto;
+    margin: 0 auto 5px auto;
+    transition: 1s;
 }
 
+/* если активен то блок с картинкой... */
 .accordeon_container input:checked ~ article {
-    width: 70%;
-    height: auto;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    width: 50%;
     overflow: hidden;
+    transition: 2s;
 }
-.accordeon_wrapper:hover>.accordeon_container>label> i{
-    background: url('../assets/img/plus-solid.svg')0 0/auto 100% no-repeat;
-}
-/* .accordeon_wrapper:hover> .accordeon_container>label> i{
-    background: url('../assets/img/square-plus-solid.svg')0 0/auto 100% no-repeat;
-} */
-
+/* если активен то цвет и нижнее подчеркивание у акк */
 .accordeon_container input:checked ~ label{
     border-bottom: none;
     color: black;
 }
-.accordeon_wrapper:hover>.accordeon_container>  ~ label> i{
-    /* background: url('../assets/img/square-minus-regular.svg')0 0/auto 100% no-repeat; */
+
+/* Наведение на обертку */
+.accordeon_wrapper:hover>.accordeon_container>label> i{
+    background: url('../assets/img/plus-solid.svg')0 0/auto 100% no-repeat;
+}
+/* видно активный элемент при помощи иконки */
+.accordeon_wrapper:hover>.accordeon_container>input:checked ~ label> i{
     transform: rotate(45deg);
 }
-/* .accordeon_wrapper:hover> .accordeon_container> input:checked ~ label> i{
-    background: url('../assets/img/square-minus-solid.svg')0 0/auto 100% no-repeat;
-} */
+/* цвет текста  */
 .accordeon_wrapper:hover>.accordeon_container>label{
     color: black;
 }
+
+/* наведение на контейнер */
+
+
+/* открывается мем при наведении на контейнер */
 .accordeon_container:hover article{
-    width: 70%;
-    height: auto;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    width: 50%;
+    transition: 1s;
     overflow: hidden;
-    background: url('../assets/img/square-minus-solid.svg')0 0/auto 100% no-repeat;
 }
+.accordeon_container:hover label{
+    border-bottom: 0px solid black;
+}
+
+/* поворот иконки */
 .accordeon_container:hover label i{
     transform: rotate(45deg);
+    transition: transform 1s;
 }
-.accordeon_container>article:active ~ label{
+
+/* актив */
+accordeon_container:before>article:active>label{
     color: rgba(28, 28, 179, 0.685);
 }
-article:active{
-    filter: blur(1px);
+article:active img{
+    filter: blur(2px);
 }
+article>img:hover>article:after{
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+
+
+
+
 @media (max-width: 900px){
     .accordeon_container label{
         font-size: 25px ;
@@ -118,15 +130,40 @@ article:active{
     }
     .accordeon_container label{
         font-size: 20px ;   
+    }
+    i{
+        background: url('../assets/img/plus-solid.svg')0 0/auto 100% no-repeat;
+    }
+    .accordeon_wrapper>.accordeon_container>input:checked ~ label> i{
+        transform: rotate(45deg);
     }    
+}
+
+@media (max-width: 670px){
+    .accordeon_container label{
+        font-size: 18px ;   
+    }
+}
+
+@media (max-width: 500px){
+    .accordeon_container label{
+        font-size: 15px ;   
+    }
 }
 
 @media (max-width: 320px){
     h1{
-     font-size: 15px;
+     font-size: 13px;
     }
     .accordeon_container label{
         font-size: 10px ;    
-    }  
+    } 
+    i{
+        background: url('../assets/img/plus-solid.svg')0 0/auto 100% no-repeat;
+    }
+    .accordeon_wrapper>.accordeon_container>input:checked ~ label> i{
+        transform: rotate(45deg);
+    }
+    
  }
     
