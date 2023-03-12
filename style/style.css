@@ -110,8 +110,8 @@ accordeon_container:before>article:active>label{
 article:active img{
     filter: blur(2px);
 }
-article>img:hover>article:after{
-    transform: scale(1.2);
+img:hover{
+    transform: scale(0.9);
     transition: 0.5s;
 }
 
